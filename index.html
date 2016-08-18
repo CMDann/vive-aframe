@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vive Test</title>
+    <meta name="description" content="Vive Test">
+    <script src="lib/aframe.min.js"></script>
+    <script src="lib/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <!-- Moon gravity -->
+    <a-scene physics='gravity: -9.8' antialias='true'>
+
+      <!-- Creating our assets -->
+      <a-assets>
+        <a-asset-item id="gregory" src="./obj/Gregory.dae"></a-asset-item>
+      </a-assets>
+
+      <a-entity position="0 1.8 4">
+        <a-camera id="camera">
+          <a-cursor color="#4CC3D9"></a-cursor>
+        </a-camera>
+      </a-entity>
+
+      <a-collada-model src="#gregory" position="0 0 0" rotation="0 0 0" scale="50 50 50">
+      </a-collada-model>
+
+      <a-image id="shadow" position="0 0 -2" src="img/radial-shadow-2.png"
+               opacity="0.5" rotation="-90 0 0" scale="2 2 2"></a-image>
+
+      <!-- The Skybox -->
+      <a-sky src="./img/space.jpg"></a-sky>
+
+      <!-- Player -->
+      <a-entity camera look-controls wasd-controls></a-entity>
+      <a-entity id="leftController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .throwable" grab></a-entity>
+      <a-entity id="rightController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .throwable" grab></a-entity>
+
+      <!-- Ammo -->
+      <a-sphere class="throwable" dynamic-body position="0 0.25 -0.5" radius="0.10" color="green"></a-sphere>
+      <a-sphere class="throwable" dynamic-body position="0.25 0.25 -0.5" radius="0.10" color="green"></a-sphere>
+      <a-sphere class="throwable" dynamic-body position="-0.25 0.25 -0.5" radius="0.10" color="green"></a-sphere>
+
+      <!-- Ground -->
+      <a-plane static-body rotation="-90 0 0" width="10" height="10" color="black"></a-plane>
+
+      <!-- Sky -->
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
