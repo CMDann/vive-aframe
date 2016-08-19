@@ -1,3 +1,5 @@
+<img src="./img/ss.png" />
+
 # Vive aframe
 
 Originally based off: https://github.com/bryik/aframe-ball-throw & https://github.com/prairie-vr/gregory-vr
