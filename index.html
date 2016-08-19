@@ -16,11 +16,12 @@
         <a-asset-item id="gregory" src="./obj/Gregory.dae"></a-asset-item>
       </a-assets>
 
-      <a-entity position="0 1.8 4">
+      <!-- Removed this because it was causing weird issues. -->
+      <!-- <a-entity position="0 1.8 4">
         <a-camera id="camera">
           <a-cursor color="#4CC3D9"></a-cursor>
         </a-camera>
-      </a-entity>
+      </a-entity> -->
 
       <a-collada-model src="#gregory" position="0 0 0" rotation="0 0 0" scale="50 50 50">
       </a-collada-model>
@@ -32,7 +33,9 @@
       <a-sky src="./img/space.jpg"></a-sky>
 
       <!-- Player -->
-      <a-entity camera look-controls wasd-controls></a-entity>
+      <a-entity camera look-controls wasd-controls><a-camera id="camera">
+          <a-cursor color="#4CC3D9"></a-cursor>
+        </a-camera></a-entity>
       <a-entity id="leftController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .throwable" grab></a-entity>
       <a-entity id="rightController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .throwable" grab></a-entity>
 
